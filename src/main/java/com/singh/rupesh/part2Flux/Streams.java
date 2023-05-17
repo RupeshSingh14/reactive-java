@@ -17,7 +17,7 @@ public class Streams {
         //stream.forEach(System.out::println); // running twice causes error
 
         //Flux<Integer> flux = Flux.fromStream(() -> stream); // this uses same reference to stream, hence
-        //will fail the multiple exection on stream
+        //will fail the multiple execution on stream
 
         Flux<Integer> flux = Flux.fromStream(() -> list.stream()); // list.stream() creates fresh instance
         //every time when this assignment is called, enabling multiple usage

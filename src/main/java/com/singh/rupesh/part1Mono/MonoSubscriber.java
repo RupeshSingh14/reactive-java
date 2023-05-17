@@ -6,6 +6,7 @@ import reactor.core.publisher.Mono;
 public class MonoSubscriber {
     public static void main(String[] args) {
 
+        //publisher
         Mono<String> mono = Mono.just("Rupesh");
 
        mono.subscribe(); //Nothing happens since consumer has no action stated but the mono pipeline will be processed

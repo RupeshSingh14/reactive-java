@@ -26,7 +26,7 @@ class NameGenerator {
     }
 
     // this method collects all the data first and presents the list at once after 5 seconds since thread
-    //goes to sleep for 1 sec in each iteration we are don't get any output till the entire process is
+    //goes to sleep for 1 sec in each iteration we don't get any output till the entire process is
     //completed.
     public static List<String> getNames(int count) {
         List<String> nameList = new ArrayList<>();

@@ -2,7 +2,11 @@ package com.singh.rupesh.part3Operators;
 
 import com.singh.rupesh.utils.Util;
 import reactor.core.publisher.Flux;
-
+/*
+There are many type of call backs which can be defined. the flow of all these call backs start
+from the subscriber to the publisher. So call backs defined nearer to the subscriber will get executed
+executed first based on the kind of callback it is.
+ */
 public class DoCallbacks {
 
     public static void main(String[] args) {
@@ -16,14 +20,16 @@ public class DoCallbacks {
             System.out.println("-- Completed");
         })
                 .doOnComplete(() -> System.out.println("doOnComplete"))
-                .doFirst(() -> System.out.println("doFirst"))
+                .doFirst(() -> System.out.println("doFirst1"))  // this is takes the top priority to get executed among all callbacks
                 .doOnNext(o -> System.out.println("doOnNext " + o))
-                .doOnSubscribe(subscription -> System.out.println("doOnSubscribe " + subscription))
-                .doOnRequest(i -> System.out.println("doOnRequest " + i))
+                .doOnSubscribe(subscription -> System.out.println("doOnSubscribe " + subscription)) // this will take priority among all callbacks except do first
+                // This works opposite of doFirst ie.. one defined closer to publisher takes priority then the other.
+                .doOnRequest(i -> System.out.println("doOnRequest " + i))//  this takes priority after doOnSubscribe()
                 .doOnError(throwable -> System.out.println("doOnError " + throwable.getMessage()))
                 .doOnTerminate(() -> System.out.println("doOnTerminate"))
                 .doOnCancel(() -> System.out.println("doOnCancel"))
                 .doFinally(signalType -> System.out.println("doOnFinally " + signalType))
+                .doFirst(() -> System.out.println("doFirst2"))  // since this is nearer to subscriber this will get executed first
                 .doOnDiscard(Object.class, o -> System.out.println("doOnDiscard " + o))
                // .take(2)
                 .subscribe(Util.subscriber());

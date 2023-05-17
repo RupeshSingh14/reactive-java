@@ -28,7 +28,7 @@ public class FluxGenerate {
 
         //implementing generate to have counter to check and cancel or complete.
         Flux.generate(
-                () -> 1,  // for maintaining the counter
+                () -> 1,  // for initial state which is the counter here.
                 (counter, sink) -> {
                     String country = Util.faker().country().name();
                     System.out.println("\nemitting country " + counter);

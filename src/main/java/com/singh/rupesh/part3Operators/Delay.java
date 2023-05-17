@@ -12,7 +12,8 @@ value set to 32 and then upon 75% data is consumed by subscriber, another 75% of
 public class Delay {
     public static void main(String[] args) {
 
-        System.setProperty("reactor.bufferSize.x", "9"); // sets the default request size as 9.
+        System.setProperty("reactor.bufferSize.x", "9"); // This is available in Queues class of
+        // reactor and sets the default request size as 9.
 
         Flux.range(0,100)
                 .log()

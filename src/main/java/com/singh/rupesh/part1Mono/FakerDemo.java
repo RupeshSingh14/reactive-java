@@ -2,6 +2,7 @@ package com.singh.rupesh.part1Mono;
 
 import com.github.javafaker.Faker;
 
+//a library to generate fake data
 public class FakerDemo {
     public static void main(String[] args) {
 

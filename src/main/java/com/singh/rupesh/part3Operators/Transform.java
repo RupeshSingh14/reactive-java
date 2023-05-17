@@ -14,7 +14,7 @@ public class Transform {
     public static void main(String[] args) {
         getPerson()
                 //switch on first checks for the first data for the set condition, if it passes it allows
-                //all the data through pipeline as is else sends all the data from defined else pipeline
+                //all the data through pipeline as is else sends all the data from the defined else pipeline
                 .switchOnFirst((signal, personFlux) -> {
                     System.out.println("inside switch on first");
                    return signal.isOnNext() && signal.get().getAge() > 10 ? personFlux : applyFilterMap().apply(personFlux);

@@ -11,7 +11,7 @@ public class FluxCreate {
 
     public static void main(String[] args) {
 
-        //only once instance of flux sink is provided.
+        //only once instance of flux sink is provided which can be used multiple times
        Flux.create(fluxSink -> {
             fluxSink.next(1);
             fluxSink.next(2);

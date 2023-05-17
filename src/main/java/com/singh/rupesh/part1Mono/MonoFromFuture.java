@@ -7,7 +7,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class MonoFromFuture {
     public static void main(String[] args) {
-        Mono.fromFuture(getName())
+        Mono.fromFuture(getName())   //makes the below method as publisher and then subscribes to this publisher
                 .subscribe(Util.onNext());
         Util.sleepSeconds(1);
     }

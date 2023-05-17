@@ -11,7 +11,7 @@ public class FluxCreate2 {
     public static void main(String[] args) {
 
         NameProducer nameProducer = new NameProducer();
-        Flux.create(nameProducer)
+        Flux.create(nameProducer) //publisher
                 .subscribe(Util.subscriber("Riddhi"));
 
         // nameProducer.produce();
@@ -25,6 +25,7 @@ public class FluxCreate2 {
     }
 }
 
+//acts a flux sink which is thread safe.
 class NameProducer implements Consumer<FluxSink<String>> {
 
     private FluxSink<String> fluxSink;

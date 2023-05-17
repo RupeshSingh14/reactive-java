@@ -6,8 +6,11 @@ import reactor.core.publisher.Flux;
 /*
 Operators acts a decorators. They do operations on the flux or mono items, creating a new instance
 every time and thus process the pipeline with required logic.
+
+handle = filter + map
+It accepts a bi-consumer function, ie.. a value and a synchronous sink using which we can apply if else
+conditions for filter and map functions
  */
-// handle = filter + map
 public class Handle {
 
     public static void main(String[] args) {

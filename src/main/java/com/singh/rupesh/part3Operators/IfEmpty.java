@@ -4,7 +4,7 @@ import com.singh.rupesh.utils.Util;
 import reactor.core.publisher.Flux;
 
 /*
-defaultIfEmpty() and SwitchIfEmpty
+defaultIfEmpty() and SwitchIfEmpty()
  */
 public class IfEmpty {
 

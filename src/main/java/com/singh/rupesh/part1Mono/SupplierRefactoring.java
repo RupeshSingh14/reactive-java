@@ -12,7 +12,7 @@ the subscribe method.
 public class SupplierRefactoring {
     public static void main(String[] args) {
         getName();
-        // getName().subscribe(Util.onNext()); // this has blocking nature
+        // getName().subscribe(Util.onNext()); // this has blocking nature a it gets executed on main thread
         getName().subscribeOn(Schedulers.boundedElastic()) // this executes in async way
                 .subscribe(Util.onNext());
         getName();
@@ -26,6 +26,9 @@ public class SupplierRefactoring {
         Util.sleepSeconds(4);
     }
 
+    /*acts as a publisher
+    actual business logic is inside the supplier so that it gets lazily executed, so unless a subscriber
+    subscribe to it, it wont get executed*/
     public static Mono<String> getName() {
         System.out.println("Entered get name method");
         return Mono.fromSupplier(() -> {

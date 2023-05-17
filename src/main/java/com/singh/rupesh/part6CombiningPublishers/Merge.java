@@ -31,10 +31,12 @@ Simulating publishers
 class QatarFlights {
 
     public static Flux<String> getFLights() {
-        return Flux.range(1, Util.faker().random().nextInt(1,5))
+        return Flux.range(1, Util.faker().random().nextInt(1,5)) // simulating random amount of data to be generated
                 .delayElements(Duration.ofSeconds(1))
                 .map(i -> "Qatar " + Util.faker().random().nextInt(100, 900))
                 .filter(i -> Util.faker().random().nextBoolean());
+        // filter() used here, randomly generates true or false, thus allowing random amount of data to be
+        // published
     }
 
 }

@@ -12,7 +12,7 @@ public class Latest {
 
         Flux.create(fluxSink -> {
             //for (int i = 1; i < 201; i++) {
-            for (int i = 1; i < 201 && !fluxSink.isCancelled(); i++) {
+            for (int i = 1; i < 201 && !fluxSink.isCancelled(); i++) { // the isCancelled condition checks on error
                 fluxSink.next(i);
                 System.out.println("Pushed : " + i);
                 Util.sleepMillis(1);
@@ -20,7 +20,7 @@ public class Latest {
             fluxSink.complete();
         })
                 .onBackpressureBuffer(20) // to process only 20 items
-                //.onBackpressureError() // for error, we have put a condition above to check if flux is not cancelled and then only emt data
+                //.onBackpressureError() // for error, we have put a condition above to check if flux is not cancelled and then only emit data
                // .onBackpressureLatest() // works just like drop but stores the the last element instead of dropping it as cache for processing
                 .publishOn(Schedulers.boundedElastic())
                 .doOnNext(i -> {

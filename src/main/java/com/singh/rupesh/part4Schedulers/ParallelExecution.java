@@ -5,8 +5,10 @@ import reactor.core.publisher.Flux;
 import reactor.core.scheduler.Schedulers;
 
 /*
-Flux Interval and delayed seconds methods internally implements schedulers parallel operator. So it they are applied to a stream and have
+Flux Interval and delayed seconds methods internally implements schedulers parallel operator. So if they are applied to a stream and have
 subscribe on with boundedElastic down the stream in pipeline, still flux interval's parallel will take precedence.
+When we use parallel(), the Flux<T> changes its type to ParallelFlux<T> and so applying subscribe on or
+parallel on will not work in that case. sequential() converts the parallel flux instance to flux instance.
  */
 public class ParallelExecution {
 

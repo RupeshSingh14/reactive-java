@@ -11,7 +11,7 @@ public class OnError {
                 .log()
                 .map(i -> 10 / (5 - i))
                // .onErrorReturn(-1) // when error happens, returns this value (-1), call cancel and complete.
-               // .onErrorResume(throwable -> fallback())
+               // .onErrorResume(throwable -> fallback()) // do the fallback, call cancel and complete.
                 .onErrorContinue((throwable, o) -> {
                     System.out.println("the error message: " + throwable.getMessage());
                     System.out.println("the object which caused error: " + o.toString());
