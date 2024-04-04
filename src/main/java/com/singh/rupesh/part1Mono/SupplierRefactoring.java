@@ -12,7 +12,7 @@ the subscribe method.
 public class SupplierRefactoring {
     public static void main(String[] args) {
         getName();
-        // getName().subscribe(Util.onNext()); // this has blocking nature a it gets executed on main thread
+        // getName().subscribe(Util.onNext()); // this has blocking nature as it gets executed on main thread
         getName().subscribeOn(Schedulers.boundedElastic()) // this executes in async way
                 .subscribe(Util.onNext());
         getName();

@@ -5,7 +5,7 @@ import reactor.core.publisher.Mono;
 import reactor.core.publisher.Sinks;
 
 /*
-Sinks are alternates processor ie.. acts as a publisher as well as subscriber.
+Sinks are alternates to processor ie.. acts as a publisher as well as subscriber.
  */
 public class SinkOne {
 
